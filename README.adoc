@@ -1,0 +1,14 @@
+= X Macros
+
+== Examples
+
+* https://github.com/ajneu/x_macros/tree/master/range_and_chained_conditional_operator[range_and_chained_conditional_operator]
+
+Compiling with cmake will also show the preprocessed files (it will generate something like https://github.com/ajneu/x_macros/blob/master/range_and_chained_conditional_operator/CMakeLists.txt#L15[`go.preprocess.cpp`])
+
+## References
+
+https://en.wikipedia.org/wiki/X_Macro +
+http://www.drdobbs.com/cpp/the-x-macro/228700289 +
+http://www.drdobbs.com/the-new-c-x-macros/184401387 +
+http://cakoose.com/wiki/c_preprocessor_abuse#3  
