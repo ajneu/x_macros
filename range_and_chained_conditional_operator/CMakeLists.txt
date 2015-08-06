@@ -13,15 +13,15 @@ add_executable(${target} ${src})
 
 
 add_custom_command(
-  OUTPUT   go.preprop.cpp
+  OUTPUT   go.preprocess.cpp
   DEPENDS  ${PROJECT_SOURCE_DIR}/go.cpp
-  COMMAND "${CMAKE_CXX_COMPILER}" -D PREPROCESS_FOR_HUMANS -E ${PROJECT_SOURCE_DIR}/go.cpp > go.preprop.cpp
+  COMMAND "${CMAKE_CXX_COMPILER}" -D PREPROCESS_FOR_HUMANS -E ${PROJECT_SOURCE_DIR}/go.cpp > go.preprocess.cpp
   COMMENT "Preprocessing go.cpp (with -D PREPROCESS_FOR_HUMANS) to go.preprocess.cpp"
   VERBATIM)
 
 
 add_custom_target(
   Preprocess ALL
-  DEPENDS go.preprop.cpp
+  DEPENDS go.preprocess.cpp
 #  COMMENT "Proprocess"
   VERBATIM)
