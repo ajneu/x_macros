@@ -1,7 +1,44 @@
 = X Macros
+:source-highlighter: coderay
+:coderay-linenums-mode: inline
+:toc:
+
+Used for defining rows of entities (often more than one, in which case we have columns)
+[source,cpp]
+----
+#define FOREACH_ROW(X)                 \
+  X(enu_jd, "John", "Doe",        23)  \
+  X(enu_mm, "Max",  "Mustermann", 24)
+----
+
+and the _generating_ types (e.g. enums), data-structures (e.g. arrays), functions, etc. from that data.
+
+* *generate enum*
++
+[source,cpp]
+----
+#define GEN_ENUM(ENUM_ID, ...) ENUM_ID,
+
+enum Enu {
+  FOREACH_ROW(GEN_ENUM)
+};
+----
+
+* *generate array*
++
+[source,cpp]
+----
+#define GEN_AGE(ENUM_ID, FIRSTNAMES, SURNAME, AGE) AGE,
+
+unsigned age[] =
+  {FOREACH_ROW(GEN_AGE)}
+  ;
+----
+
 
 == Examples
 
+* https://github.com/ajneu/x_macros/tree/master/person_table[person_table]
 * https://github.com/ajneu/x_macros/tree/master/range_and_chained_conditional_operator[range_and_chained_conditional_operator]
 
 Compiling with cmake will also show the preprocessed files (it will generate something like https://github.com/ajneu/x_macros/blob/master/range_and_chained_conditional_operator/CMakeLists.txt#L15[`go.preprocess.cpp`])
